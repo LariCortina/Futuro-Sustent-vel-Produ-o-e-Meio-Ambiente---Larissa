@@ -1,0 +1,253 @@
+/* ===== RESET BÁSICO ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== CORES (verde, amarelo, bege, marrom claro) ===== */
+:root {
+    --verde-escuro: #2e7d32;      /* verde principal */
+    --verde-claro: #a5d6a7;        /* verde para detalhes */
+    --amarelo: #fdd835;            /* amarelo para destaques */
+    --bege: #f5f5dc;               /* fundo geral */
+    --marrom: #8b5a2b;             /* marrom para textos e bordas */
+    --marrom-claro: #bcaaa4;        /* para hover */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bege);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===== MENU ===== */
+.menu {
+    background-color: var(--verde-escuro);
+    padding: 1rem;
+    position: sticky;          /* menu gruda no topo ao rolar */
+    top: 0;
+    z-index: 100;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;              /* flexbox para alinhar itens */
+    justify-content: center;
+    flex-wrap: wrap;            /* quebra linha em mobile */
+    gap: 1.5rem;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s; /* efeito suave */
+}
+
+/* Efeito de hover (passar o mouse) - já é uma interação CSS */
+.menu a:hover {
+    background-color: var(--amarelo);
+    color: var(--verde-escuro);
+}
+
+/* ===== SEÇÕES ===== */
+section {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-left: 8px solid var(--verde-escuro);
+}
+
+h1, h2, h3 {
+    color: var(--verde-escuro);
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: var(--marrom);
+}
+
+h2 {
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--amarelo);
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+/* Destaque para frases importantes */
+.destaque {
+    background-color: var(--amarelo);
+    padding: 1rem;
+    border-radius: 8px;
+    font-style: italic;
+    font-weight: bold;
+    color: #333;
+    margin-top: 1rem;
+}
+
+/* ===== CARDS (NÚMEROS) ===== */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.card {
+    background: var(--verde-claro);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1 1 200px;          /* cresce, encolhe, base de 200px */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: 2px solid var(--marrom);
+}
+
+.card h3 {
+    font-size: 2.5rem;
+    color: var(--marrom);
+    cursor: pointer;          /* indica que é clicável */
+    transition: transform 0.2s;
+}
+
+.card h3:hover {
+    transform: scale(1.1);    /* aumenta um pouco ao passar o mouse */
+}
+
+/* ===== GREENWASHING (exemplo oculto) ===== */
+.hidden {
+    display: none;
+}
+
+#greenwashing-exemplo {
+    background-color: var(--amarelo);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 2px dashed var(--marrom);
+}
+
+#greenwashing-titulo {
+    cursor: pointer;
+    color: var(--marrom);
+}
+
+/* ===== EXEMPLO ELETRÔNICOS ===== */
+#exemplo-eletronicos {
+    background-color: var(--verde-claro);
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid var(--marrom);
+}
+
+#mensagem-eletronicos {
+    background-color: white;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    color: var(--verde-escuro);
+}
+
+/* ===== TABELA ===== */
+.tabela-container {
+    overflow-x: auto;          /* faz a tabela rolar horizontalmente se for muito larga */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 2px solid var(--marrom-claro);
+}
+
+th {
+    background-color: var(--verde-escuro);
+    color: white;
+}
+
+tr {
+    transition: background-color 0.2s;
+}
+
+/* Linhas clicáveis (vamos usar JS para mudar a cor) */
+tr {
+    cursor: pointer;
+}
+
+/* Classe adicionada pelo JS quando a linha for clicada */
+tr.highlight {
+    background-color: var(--amarelo) !important;
+    font-weight: bold;
+}
+
+.mensagem-interativa {
+    background-color: var(--verde-claro);
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+    background-color: var(--marrom);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
